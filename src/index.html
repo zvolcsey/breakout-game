@@ -4,10 +4,29 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/style.css" />
     <title>Breakout!</title>
   </head>
   <body>
+    <h1>Breakout!</h1>
+    <button id="rules-btn" class="btn rules-btn">Show Rules</button>
+    <div id="rules" class="rules">
+      <button id="close-btn" class="btn">Close</button>
+      <h2>How To Play:</h2>
+      <p>
+        Use your right and left key to moce the paddle to bounce the ball up and
+        break the blocks.
+      </p>
+      <p>If you miss the ball, your score and the blocks will reset.</p>
+    </div>
+    <canvas id="canvas"></canvas>
+
     <script src="./js/script.js"></script>
   </body>
 </html>
