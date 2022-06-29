@@ -1,3 +1,4 @@
+Course objectives
 1. Create canvas context
 2. Create and draw ball
 3. Create and draw paddle
@@ -10,3 +11,10 @@
 10. Add wal boundaries
 11. Increase the score when the bricks break
 12. Lose - redraw bricks, reset score
+
+My objectives
+1. Create an another game design 
+  If ball touch the bottom wall then move to the center.
+  If the player win, then the ball move to the center.
+2. If the ball breaks a brick then a gift fall
+3. If the player have got the gift then can shoot with the paddle for 10 seconds
