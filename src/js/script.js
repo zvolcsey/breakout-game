@@ -110,10 +110,17 @@ function moveBall() {
     ball.dx *= -1;
   }
 
-  // Wall collision (top/bottom)
+  // Wall collision (top)
   if (ball.y + ball.size > canvas.height || ball.y - ball.size < 0) {
     ball.dy *= -1;
   }
+
+  /*// Hit bottom wall - Lose (Another game design)
+  if (ball.y + ball.size > canvas.height) {
+    showAllBricks();
+    score = 0;
+    moveBallToCenter();
+  }*/
 
   // Paddle collison
   if (
@@ -136,11 +143,45 @@ function moveBall() {
         ) {
           ball.dy *= -1;
           brick.visible = false;
+
+          increaseScore();
         }
       }
     });
   });
+
+  // Hit bottom wall - Lose
+  if (ball.y + ball.size > canvas.height) {
+    showAllBricks();
+    score = 0;
+  }
 }
+
+// Increase score
+function increaseScore() {
+  score++;
+
+  if (score % (brickRowCount * brickColumnCount) === 0) {
+    showAllBricks();
+    resetScore();
+    //moveBallToCenter();
+  }
+}
+
+// Make all bricks appear
+function showAllBricks() {
+  bricks.forEach((column) => {
+    column.forEach((brick) => {
+      brick.visible = true;
+    });
+  });
+}
+
+// Move ball to the center of the canvas (Another game design)
+/*function moveBallToCenter() {
+  ball.x = canvas.width / 2;
+  ball.y = canvas.height / 2;
+}*/
 
 // Draw everything
 function draw() {
@@ -158,10 +199,8 @@ function update() {
   movePaddle();
   moveBall();
 
-  // Check bricks
-  if (bricks.length)
-    // Draw everything
-    draw();
+  // Draw everything
+  draw();
 
   requestAnimationFrame(update);
 }
